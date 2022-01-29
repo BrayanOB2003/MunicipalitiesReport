@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,73,10,10" SelectionChanged="DataGrid_SelectionChanged" Grid.ColumnSpan="5"/>
+        <Button Content="Cargar información" HorizontalAlignment="Left" Margin="63,19,0,0" VerticalAlignment="Top" Height="35" Width="119" Click="SearchFile"/>
 
     </Grid>
 </Window>
