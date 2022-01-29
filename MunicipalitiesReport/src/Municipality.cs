@@ -8,25 +8,25 @@ namespace src
 {
     public class Municipality
     {
-        private String region;
-        private String codeOfRegion;
+        private String type;
+        private String codeOfMunicipality;
         private String department;
         private String codeOfDepart;
         private String municipalityName;
 
         public Municipality(String r, String cor, String dpt, String cfd, String name)
         {
-            region = r;
-            codeOfRegion = cor;
-            codeOfDepart = dpt;
+            type = r;
+            codeOfMunicipality = cor;
+            department = dpt;
             codeOfDepart = cfd;
             municipalityName = name;
         }
 
-        public string Region { get => region; set => region = value; }
-        public string CodeOfRegion { get => codeOfRegion; set => codeOfRegion = value; }
+        public string CodeOfRegion { get => codeOfMunicipality; set => codeOfMunicipality = value; }
         public string Department { get => department; set => department = value; }
         public string CodeOfDepart { get => codeOfDepart; set => codeOfDepart = value; }
         public string MunicipalityName { get => municipalityName; set => municipalityName = value; }
+        public string Type { get => type; set => type = value; }
     }
 }

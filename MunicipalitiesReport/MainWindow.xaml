@@ -8,6 +8,7 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <Button Content="Cargar información" HorizontalAlignment="Left" Margin="63,19,0,0" VerticalAlignment="Top" Height="35" Width="119" Click="SearchFile"/>
+        <DataGrid x:Name="table" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,97,0,0"/>
 
     </Grid>
 </Window>

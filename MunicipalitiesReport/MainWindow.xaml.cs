@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,9 +30,22 @@ namespace MunicipalitiesReport
             municipalities = new List<Municipality>();
         }
 
-        public void LoadInformation()
+        public void LoadInformation(String path)
         {
-
+            int cont = 0;
+            Municipality mn;
+            foreach (string line in System.IO.File.ReadLines(path))
+            {
+                
+                if(cont > 0 && cont < 1122)
+                {
+                    String[] data = line.Split(',');
+                    mn = new Municipality(data[4], data[1], data[2], data[0], data[3]);
+                    municipalities.Add(mn);
+                }
+                cont++;
+            }
+            table.ItemsSource = municipalities;
         }
 
         private void SearchFile(object sender, RoutedEventArgs e)
@@ -41,7 +55,7 @@ namespace MunicipalitiesReport
 
             if (file.ShowDialog() != null)
             {
-                System.Windows.MessageBox.Show("papitas con salsa");
+                LoadInformation(file.FileName);
             }
         }
     }
