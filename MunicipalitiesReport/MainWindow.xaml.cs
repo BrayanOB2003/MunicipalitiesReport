@@ -36,8 +36,8 @@ namespace MunicipalitiesReport
             Municipality mn;
             foreach (string line in System.IO.File.ReadLines(path))
             {
-                
-                if(cont > 0 && cont < 1122)
+
+                if (cont > 0 && cont < 1122)
                 {
                     String[] data = line.Split(',');
                     mn = new Municipality(data[4], data[1], data[2], data[0], data[3]);
@@ -46,6 +46,8 @@ namespace MunicipalitiesReport
                 cont++;
             }
             table.ItemsSource = municipalities;
+            Char[] charList = new[] { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'ñ', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' };
+            Cbox.ItemsSource = charList;
         }
 
         private void SearchFile(object sender, RoutedEventArgs e)
@@ -59,11 +61,6 @@ namespace MunicipalitiesReport
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void ShowGraphic(object sender, RoutedEventArgs e)
         {
 
@@ -72,6 +69,23 @@ namespace MunicipalitiesReport
 
             Window window = Window.GetWindow(this);
             window.Close();
+        }
+
+        private void SelectItem(object sender, SelectionChangedEventArgs e)
+        {
+            char letter = (char)Cbox.SelectedItem;
+            List<Municipality> mn = new List<Municipality>();
+
+            for (int i = 0; i < municipalities.Count; i++)
+            {
+                if(municipalities[i].Department.Substring(0, 1).ToLower().Equals(letter.ToString()))
+                {
+                    mn.Add(municipalities[i]);
+                }
+            }
+
+            table.ItemsSource = mn;
+            System.Windows.MessageBox.Show(mn.Count + "");
         }
     }
 }
