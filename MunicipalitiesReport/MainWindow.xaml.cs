@@ -58,5 +58,20 @@ namespace MunicipalitiesReport
                 LoadInformation(file.FileName);
             }
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ShowGraphic(object sender, RoutedEventArgs e)
+        {
+
+            Window1 window1 = new Window1(municipalities);
+            window1.Show();
+
+            Window window = Window.GetWindow(this);
+            window.Close();
+        }
     }
 }
